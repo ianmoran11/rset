@@ -64,9 +64,26 @@ make_set <- function(name = NULL, type = NULL , generator_expression = NULL , pr
      name  = name
    , type = type
    , generator_expression = generator_expression
+   , enumerator_expression =  generator_expression
    , predicate_expression = predicate_expression    
  ) 
 }
+
+
+.Machine
+as.numeric(1 + 2.220446e-16)
+
+identical(1 + 2.220446e-16,1)
+
+
+2.220446e-16
+round(runif(1),digits = 100)
+
+
+runif(n= 10)
+sample.int(n = as.integer(.Machine$integer.max),size = 1)
+runif(1,min = .Machine$double.xmin,max = .Machine$double.xmax)
+runif(1,min = .Machine$double.xmin,max = .Machine$max)
 
 even <- make_set("evens", "integer", generator_expression =  \(N)N*2, predicate_expression = \(y)(y %% 2)==0)
 years <- make_set("evens", "integer", generator_expression =  \(N)N*2, predicate_expression = \(y)(y %% 2)==0)
